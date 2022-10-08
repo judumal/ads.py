@@ -4,11 +4,9 @@ from flask import request
 import csv
 import pandas
 
-
 app = Flask(__name__)
 registros = []
 lista = []
-
 
 @app.route('/', methods = ['GET'])
 def principal():
@@ -18,7 +16,6 @@ def principal():
 def dados():
     lista_cadastro()
     return render_template('dados.html')
-
 
 
 @app.route('/cadastro', methods = ['GET', 'POST'])
@@ -42,8 +39,6 @@ def cadastro():
             insere_linha.close()
             registros.clear()
             
-            
-            
     return render_template ('confirma.html')
 
 @app.route('/lista_cadastro', methods = ['GET', 'POST'])
@@ -60,5 +55,3 @@ def lista_cadastro():
 
     
 app.run(debug = True)
-
-
